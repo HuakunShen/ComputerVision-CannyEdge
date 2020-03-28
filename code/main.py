@@ -32,19 +32,33 @@ def main(argv, prog=''):
         image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
     out = convolution(image, g_filter)
     ed.store_image('blurred', out)
-    ed.write_image(parsed_output[0] + '-blur' + parsed_output[1], 'blurred')
+    success, msg = ed.write_image(parsed_output[0] + '-blur' + parsed_output[1], 'blurred')
+    if not success:
+        print(msg)
+        exit(1)
     edge, theta = ed.calculate_gradient()
     ed.store_image('edge', edge)
-    ed.write_image(parsed_output[0] + '-edge' + parsed_output[1], 'edge')
+    success, msg = ed.write_image(parsed_output[0] + '-edge' + parsed_output[1], 'edge')
+    if not success:
+        print(msg)
+        exit(1)
     ed.non_maximum_suppression(theta * 180 / np.pi)
-    ed.write_image(parsed_output[0] + '-suppress' + parsed_output[1], 'suppress')
+    success, msg = ed.write_image(parsed_output[0] + '-suppress' + parsed_output[1], 'suppress')
+    if not success:
+        print(msg)
+        exit(1)
     threshold, weak, strong = ed.double_threshold(0.03, 0.1)
     ed.store_image('threshold', threshold)
-    ed.write_image(parsed_output[0] + '-threshold' + parsed_output[1], 'threshold')
+    success, msg = ed.write_image(parsed_output[0] + '-threshold' + parsed_output[1], 'threshold')
+    if not success:
+        print(msg)
+        exit(1)
     result = ed.hysteresis(weak, strong)
     ed.store_image('result', result)
-    ed.write_image(args.output, 'result')
-
+    success, msg = ed.write_image(args.output, 'result')
+    if not success:
+        print(msg)
+        exit(1)
 
 if __name__ == "__main__":
     main(sys.argv[1:], sys.argv[0])
