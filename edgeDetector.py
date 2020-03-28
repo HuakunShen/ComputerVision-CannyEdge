@@ -56,7 +56,6 @@ class cannyEdgeDetector:
         row, col = edge.shape[:2]
         result = np.zeros(edge.shape)
         angles[angles < 0] += 180
-        # print(angles)
         for i in range(1, row - 1):
             for j in range(1, col - 1):
                 front = 0
@@ -83,18 +82,50 @@ class cannyEdgeDetector:
         return result
 
 
-    def double_threshold(self):
-        pass
+    def double_threshold(self, low, high):
+        if low >= 1 or high >= 1:
+            print("low and high must be less than 0")
+            return
+        if low > high:
+            print("low must be smaller than high")
+            return
+        image = self._images['suppress']
+        max_intensity = image.max()
+        high_threshold = max_intensity * high
+        low_threshold = max_intensity * low
+        row, col = image.shape
+        result = np.zeros((row, col))
+        strong_r, strong_c = np.where(image >= high_threshold)
+        weak_r, weak_c = np.where((low_threshold < image) & (image < high_threshold))
+        result[strong_r, strong_c] = 255
+        result[weak_r, weak_c] = 20
+        return result, 20, 255
 
-    def hysteresis(self):
-        pass
+
+    def hysteresis(self, weak, strong):
+        surroundings = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
+        image = self._images['threshold']
+        row, col = image.shape
+        for i in range(1, row - 1):
+            for j in range(1, col - 1):
+                if image[i, j] == weak:
+                    strong_flag = 0
+                    for surrounding in surroundings:
+                        if image[i + surrounding[0]][j + surrounding[1]] == strong:
+                            image[i, j] = strong
+                            strong_flag = 1
+                            break
+                    if strong_flag == 0:
+                        image[i, j] = 0
+        return image
+
+
 
     def store_image(self, key, image):
         self._images[key] = image
 
     def get_image(self, key):
         return self._images[key]
-
 
 
 def convolution(source_image, gaussian_kernel):
@@ -111,14 +142,10 @@ def convolution(source_image, gaussian_kernel):
             out_image[i, j] = conv_sum
     return out_image
 
-
-
-
-
-if __name__ == "__main__":
+def run(source_image):
     ed = cannyEdgeDetector()
     g_filter = ed.gaussian_filter()
-    filename = 'source.png'
+    filename = source_image
     ed.read_image(filename, 'source')
     image = np.array(ed.get_image('source'))
     if image.shape[2] > 1:
@@ -129,5 +156,15 @@ if __name__ == "__main__":
     edge, theta = ed.calculate_gradient()
     ed.store_image('edge', edge)
     ed.write_image('edge.png', 'edge')
-    ed.non_maximum_suppression(theta * 180/np.pi)
+    ed.non_maximum_suppression(theta * 180 / np.pi)
     ed.write_image('suppress.png', 'suppress')
+    threshold, weak, strong = ed.double_threshold(0.03, 0.1)
+    ed.store_image('threshold', threshold)
+    ed.write_image('threshold.png', 'threshold')
+    result = ed.hysteresis(weak, strong)
+    ed.store_image('result', result)
+    ed.write_image('result.png', 'result')
+
+
+if __name__ == "__main__":
+    run('source.png')
