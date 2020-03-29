@@ -10,6 +10,8 @@ def parse_arguments(argv, prog=''):
     parser.add_argument('-o', '--output', help='Output Image Address', required=True, type=str)
     parser.add_argument('-q', '--quiet', action='store_true', help='print quite')
     parser.add_argument('-v', '--verbose', action='store_true', help='print verbose')
+    parser.add_argument('--sigma', help='sigma value', default=1, type=int)
+    parser.add_argument('--kernel_size', help='kernel size value', default=1, type=int)
     args, unprocessed_argv = parser.parse_known_args(argv)
     print("Source Image: {}".format(args.source))
     print("Output Image: {}".format(args.output))
@@ -21,7 +23,7 @@ def main(argv, prog=''):
     args, unprocessed_argv = parse_arguments(argv, prog)
     # parse output file name
     parsed_output = os.path.splitext(args.output)
-    ed = CannyEdgeDetector()
+    ed = CannyEdgeDetector(sigma=args.sigma, kernel_size=args.kernel_size)
     g_filter = ed.gaussian_filter()
     success, msg = ed.read_image(args.source, 'source')
     if not success:
@@ -59,6 +61,7 @@ def main(argv, prog=''):
     if not success:
         print(msg)
         exit(1)
+
 
 if __name__ == "__main__":
     main(sys.argv[1:], sys.argv[0])
