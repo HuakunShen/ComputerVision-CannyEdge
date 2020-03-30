@@ -1,8 +1,8 @@
 import cv2 as cv
 import numpy as np
 
-class cannyEdgeDetector:
 
+class CannyEdgeDetector:
     def __init__(self, sigma=1, kernel_size=1):
         self._images = {
             'source': None,
@@ -38,9 +38,10 @@ class cannyEdgeDetector:
         return success, msg
 
     def gaussian_filter(self):
-        x, y = np.mgrid[-self.kernel_size:self.kernel_size+1, -self.kernel_size:self.kernel_size+1].astype(np.float64)
-        inverse_normalize_factor = (2 * np.pi * self.sigma**2)
-        gaussian_kernel = np.exp(-((x**2 + y**2) / (2 * self.sigma ** 2)))
+        x, y = np.mgrid[-self.kernel_size:self.kernel_size + 1, -self.kernel_size:self.kernel_size + 1].astype(
+            np.float64)
+        inverse_normalize_factor = (2 * np.pi * self.sigma ** 2)
+        gaussian_kernel = np.exp(-((x ** 2 + y ** 2) / (2 * self.sigma ** 2)))
         return gaussian_kernel / inverse_normalize_factor
 
     def calculate_gradient(self):
@@ -81,7 +82,6 @@ class cannyEdgeDetector:
         self._images['suppress'] = result
         return result
 
-
     def double_threshold(self, low, high):
         if low >= 1 or high >= 1:
             print("low and high must be less than 0")
@@ -101,7 +101,6 @@ class cannyEdgeDetector:
         result[weak_r, weak_c] = 20
         return result, 20, 255
 
-
     def hysteresis(self, weak, strong):
         surroundings = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
         image = self._images['threshold']
@@ -119,8 +118,6 @@ class cannyEdgeDetector:
                         image[i, j] = 0
         return image
 
-
-
     def store_image(self, key, image):
         self._images[key] = image
 
@@ -133,17 +130,17 @@ def convolution(source_image, gaussian_kernel):
     out_image = np.zeros(source_image.shape)
     row_padding, col_padding = np.array(gaussian_kernel.shape) / 2
 
-    for i in range(row_padding, row - row_padding):
-        for j in range(col_padding, col - col_padding):
+    for i in range(int(row_padding), int(row - row_padding)):
+        for j in range(int(col_padding), int(col - col_padding)):
             conv_sum = 0
-            for m in range(-row_padding, row_padding + 1):
-                for n in range(-col_padding, col_padding + 1):
+            for m in range(int(-row_padding), int(row_padding + 1)):
+                for n in range(int(-col_padding), int(col_padding + 1)):
                     conv_sum += source_image[i + m, j + n] * gaussian_kernel[m, n]
             out_image[i, j] = conv_sum
     return out_image
 
 def run(source_image):
-    ed = cannyEdgeDetector()
+    ed = CannyEdgeDetector()
     g_filter = ed.gaussian_filter()
     filename = source_image
     ed.read_image(filename, 'source')
@@ -166,7 +163,7 @@ def run(source_image):
     ed.write_image('result.png', 'result')
 
 def run2(source_image):
-    ed = cannyEdgeDetector()
+    ed = CannyEdgeDetector()
     g_filter = ed.gaussian_filter()
     filename = source_image
     ed.read_image(filename, 'source')
