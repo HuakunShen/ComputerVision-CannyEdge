@@ -165,6 +165,34 @@ def run(source_image):
     ed.store_image('result', result)
     ed.write_image('result.png', 'result')
 
+def run2(source_image):
+    ed = cannyEdgeDetector()
+    g_filter = ed.gaussian_filter()
+    filename = source_image
+    ed.read_image(filename, 'source')
+    image = np.array(ed.get_image('source'))
+    if image.shape[2] > 1:
+        image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
+    # image = cv.pyrDown(image)
+    # image = cv.pyrDown(image)
+    # image = cv.pyrUp(image)
+    # image = cv.pyrUp(image)
+    out = convolution(image, g_filter)
+    ed.store_image('blurred', out)
+    ed.write_image('blur.png', 'blurred')
+    edge, theta = ed.calculate_gradient()
+    ed.store_image('edge', edge)
+    ed.write_image('edge.png', 'edge')
+    ed.non_maximum_suppression(theta * 180 / np.pi)
+    ed.write_image('suppress.png', 'suppress')
+    threshold, weak, strong = ed.double_threshold(0.03, 0.1)
+    ed.store_image('threshold', threshold)
+    ed.write_image('threshold.png', 'threshold')
+    result = ed.hysteresis(weak, strong)
+    # result = cv.pyrUp(result)
+    # result = cv.pyrUp(result)
+    ed.store_image('result', result)
+    ed.write_image('result.png', 'result')
 
 if __name__ == "__main__":
-    run('source.png')
+    run2('source.png')
