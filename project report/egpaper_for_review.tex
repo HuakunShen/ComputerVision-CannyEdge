@@ -1,0 +1,69 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
+
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+
+
+\begin{document}
+
+\title{CSC320 Project}
+
+\author{Jiatao Xiang\\
+1004236613\\
+{\tt\small jiatao.xiang@mail.utoronto.ca}
+\and
+Huakun Shen\\
+{\tt\small huakun.shen@mail.utoronto.ca}
+}
+
+\maketitle
+
+
+\section{Introduction}
+Edge detection is a important tool in many computer vision applications. The major process of finding edge is to recognize sharp discontinuities in an image and mark them white whereas other places are marked black. Canny edge detection is one of the most famous algorithms that was invented by John Canny in 1986. And in this report, we will focus on how to improve Canny edge detection by modifying some steps of the algorithm.\\
+
+
+\section{Background Information}
+Canny Edge detection is a simple algorithm that is only consist of 5 steps. The first step is applying Gaussian filter. This is a pre-process step that can smooth out some noisy points in the image. The second step is to use Sobel filter (Gradient based filter) to extract the major edge of the image. The edge could be pretty wide. Non-maximum suppression is the third step of the algorithm. This step can thinning the wide edge, and make them one pixel wide. Next, the algorithm use threshold to separate the edges into 3 sections. They are strong pixels, weak pixels and zero pixels respectively. The final step (tracking process) is to track the weak pixels. The algorithm will keep all weak pixels that are connected to strong pixels and discard the others and assign them with zero intensity. The thinning process and tracking process provide precise edges in the result. This algorithm can also detect the edges in noisy state by applying the threshold methods.
+
+\section{Proposal}
+We gain a lot benefit from the Canny edge detection algorithm. However, there are also some drawbacks. Firstly, if the image is really large, in order to detect the edge, we might need different threshold in different area of the image. Besides, using Gaussian filter in the first step may smooth out some weak edge, that is, if the color of foreground object is similar to background object, then we cannot detect the edge properly. 
+
+\subsection{Our concern to the algorithm}
+
+
+\subsection{How to improve}
+
+
+\begin{figure}[t]
+\begin{center}
+\fbox{\rule{0pt}{2in} \rule{0.9\linewidth}{0pt}}
+   %\includegraphics[width=0.8\linewidth]{egfigure.eps}
+\end{center}
+   \caption{Example of caption.  It is set in Roman so that mathematics
+   (always set in Roman: $B \sin A = A \sin B$) may be included without an
+   ugly clash.}
+\label{fig:long}
+\label{fig:onecol}
+\end{figure}
+
+%------------------------------------------------------------------------
+\section{Modelling}
+
+\section{Experiment}
+
+\section{Conclusion}
+
+\section{limitation}
+
+\section{Application}
+
+\end{document}
