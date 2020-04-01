@@ -40,7 +40,7 @@ We gain a lot benefit from the Canny edge detection algorithm. However, there ar
 \subsection{Our concerns to the algorithm}
 \begin{enumerate}
 	\item[1.] In the first step, we have to choose patch size and sigma for Gaussian filter to get rid of the noisy points. If the value we choose is not property, the result will be unwilling.
-	\item[2.] In the threshold step, the algorithm only have one high and low thresholds for the whole image, which may miss some detail that should be the edge.
+	\item[2.] In the threshold step, the algorithm only have one high and low thresholds for the whole image, which may miss some detail that should be the edge or highlight something we do not want.
 	\item[3.] The algorithm require a lot of computational time, which make the efficiency low.
 \end{enumerate}
 
@@ -53,9 +53,9 @@ We gain a lot benefit from the Canny edge detection algorithm. However, there ar
 
 \subsection{Reason for each improvements}
 \begin{enumerate}
-	\item[1.] 
-	\item[2.]  
-	\item[3.] This reduce  the image size by a lot, which significantly improves the efficiency.
+	\item[1.] Using Gaussian pyramid, we extract the main features of the image to reduce the noise. And the modified algorithm do not require user to give parameters for the Gaussian filter.
+	\item[2.] We divide image into different patches and set different thresholds for each patch. In this way, we can extract main features for each patch, and in this way, the algorithm will reveal the edges that are omitted by original algorithm. 
+	\item[3.] Using reduce function multiple times will reduce the size of image by a lot, which significantly improves the efficiency.
 \end{enumerate}
 
 
