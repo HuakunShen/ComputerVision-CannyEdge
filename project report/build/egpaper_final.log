@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.9)  1 APR 2020 14:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.9)  31 MAR 2020 14:49
 entering extended mode
-**./egpaper_for_review.tex
-(egpaper_for_review.tex
+**./egpaper_final.tex
+(egpaper_final.tex
 LaTeX2e <2017-04-15>
 Babel <3.15> and hyphenation patterns for 75 language(s) loaded.
 (E:\other\latex\tex\latex\base\article.cls
@@ -20,8 +20,36 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
+) (cvpr.sty (eso-pic.sty
+Package: eso-pic 2002/11/16 v1.1b eso-pic (RN)
+
+(cvpr_eso.sty
+
+LaTeX Warning: You have requested package `eso-pic',
+               but the package provides `everyshi'.
+
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+) (E:\other\latex\tex\latex\graphics\keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+))
+(E:\other\latex\tex\latex\tools\xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-(E:\other\latex\tex\latex\psnfss\times.sty
+CVPR 8.5 x 11-Inch Proceedings Style `cvpr.sty'.
+\@ctmp=\skip43
+\@figindent=\skip44
+\cvprrulerbox=\box26
+\cvprrulercount=\count87
+\cvprruleroffset=\dimen103
+\cv@lineheight=\dimen104
+\cv@boxheight=\dimen105
+\cv@tmpbox=\box27
+\cv@refno=\count88
+\cv@tot=\count89
+\cv@tmpc@=\count90
+\cv@tmpc=\count91
+) (E:\other\latex\tex\latex\psnfss\times.sty
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
 (E:\other\latex\tex\latex\graphics\epsfig.sty
@@ -30,10 +58,6 @@ Package: epsfig 2017/06/25 v1.7b (e)psfig emulation (SPQR)
 (E:\other\latex\tex\latex\graphics\graphicx.sty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
-(E:\other\latex\tex\latex\graphics\keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks14
-)
 (E:\other\latex\tex\latex\graphics\graphics.sty
 Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
@@ -48,15 +72,15 @@ Package graphics Info: Driver file: pdftex.def on input line 99.
 (E:\other\latex\tex\latex\graphics-def\pdftex.def
 File: pdftex.def 2017/06/24 v1.0g Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen103
-\Gin@req@width=\dimen104
+\Gin@req@height=\dimen106
+\Gin@req@width=\dimen107
 )
-\epsfxsize=\dimen105
-\epsfysize=\dimen106
+\epsfxsize=\dimen108
+\epsfysize=\dimen109
 )
 (E:\other\latex\tex\latex\amsmath\amsmath.sty
 Package: amsmath 2017/09/02 v2.17a AMS math features
-\@mathmargin=\skip43
+\@mathmargin=\skip45
 
 For additional information on amsmath, use the `?' option.
 (E:\other\latex\tex\latex\amsmath\amstext.sty
@@ -65,49 +89,49 @@ Package: amstext 2000/06/29 v2.01 AMS text
 (E:\other\latex\tex\latex\amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks15
-\ex@=\dimen107
+\ex@=\dimen110
 ))
 (E:\other\latex\tex\latex\amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen108
+\pmbraise@=\dimen111
 )
 (E:\other\latex\tex\latex\amsmath\amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count87
+\inf@bad=\count92
 LaTeX Info: Redefining \frac on input line 213.
-\uproot@=\count88
-\leftroot@=\count89
+\uproot@=\count93
+\leftroot@=\count94
 LaTeX Info: Redefining \overline on input line 375.
-\classnum@=\count90
-\DOTSCASE@=\count91
+\classnum@=\count95
+\DOTSCASE@=\count96
 LaTeX Info: Redefining \ldots on input line 472.
 LaTeX Info: Redefining \dots on input line 475.
 LaTeX Info: Redefining \cdots on input line 596.
-\Mathstrutbox@=\box26
-\strutbox@=\box27
-\big@size=\dimen109
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen112
 LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
-\macc@depth=\count92
-\c@MaxMatrixCols=\count93
+\macc@depth=\count97
+\c@MaxMatrixCols=\count98
 \dotsspace@=\muskip10
-\c@parentequation=\count94
-\dspbrk@lvl=\count95
+\c@parentequation=\count99
+\dspbrk@lvl=\count100
 \tag@help=\toks16
-\row@=\count96
-\column@=\count97
-\maxfields@=\count98
+\row@=\count101
+\column@=\count102
+\maxfields@=\count103
 \andhelp@=\toks17
-\eqnshift@=\dimen110
-\alignsep@=\dimen111
-\tagshift@=\dimen112
-\tagwidth@=\dimen113
-\totwidth@=\dimen114
-\lineht@=\dimen115
+\eqnshift@=\dimen113
+\alignsep@=\dimen114
+\tagshift@=\dimen115
+\tagwidth@=\dimen116
+\totwidth@=\dimen117
+\lineht@=\dimen118
 \@envbody=\toks18
-\multlinegap=\skip44
-\multlinetaggap=\skip45
+\multlinegap=\skip46
+\multlinetaggap=\skip47
 \mathdisplay@stack=\toks19
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
@@ -178,107 +202,108 @@ Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 (E:\other\latex\tex\latex\oberdiek\kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
-\@linkdim=\dimen116
-\Hy@linkcounter=\count99
-\Hy@pagecounter=\count100
+\@linkdim=\dimen119
+\Hy@linkcounter=\count104
+\Hy@pagecounter=\count105
 
 (E:\other\latex\tex\latex\hyperref\pd1enc.def
 File: pd1enc.def 2017/03/14 v6.85a Hyperref: PDFDocEncoding definition (HO)
 )
-\Hy@SavedSpaceFactor=\count101
+\Hy@SavedSpaceFactor=\count106
 
 (E:\other\latex\tex\latex\00miktex\hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
 Package hyperref Info: Option `breaklinks' set `true' on input line 4374.
-
-
-Package hyperref Warning: Option `letterpaper' is no longer used.
-
-Package hyperref Info: Option `colorlinks' set `true' on input line 4374.
 Package hyperref Info: Option `bookmarks' set `false' on input line 4374.
 Package hyperref Info: Hyper figures OFF on input line 4498.
 Package hyperref Info: Link nesting OFF on input line 4503.
 Package hyperref Info: Hyper index ON on input line 4506.
 Package hyperref Info: Plain pages OFF on input line 4513.
-Package hyperref Info: Backreferencing ON on input line 4516.
+Package hyperref Info: Backreferencing OFF on input line 4518.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks OFF on input line 4757.
-(E:\other\latex\tex\latex\hyperref\backref.sty
-Package: backref 2016/05/21 v1.39 Bibliographical back referencing
-
-(E:\other\latex\tex\latex\oberdiek\rerunfilecheck.sty
-Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
-82.
-))
-\c@Hy@tempcnt=\count102
+\c@Hy@tempcnt=\count107
 
 (E:\other\latex\tex\latex\url\url.sty
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5104.
-\XeTeXLinkMargin=\dimen117
-\Fld@menulength=\count103
-\Field@Width=\dimen118
-\Fld@charsize=\dimen119
+\XeTeXLinkMargin=\dimen120
+\Fld@menulength=\count108
+\Field@Width=\dimen121
+\Fld@charsize=\dimen122
 Package hyperref Info: Hyper figures OFF on input line 6358.
 Package hyperref Info: Link nesting OFF on input line 6363.
 Package hyperref Info: Hyper index ON on input line 6366.
-Package hyperref Info: backreferencing ON on input line 6371.
-Package hyperref Info: Link coloring ON on input line 6376.
+Package hyperref Info: backreferencing OFF on input line 6373.
+Package hyperref Info: Link coloring OFF on input line 6378.
 Package hyperref Info: Link coloring with OCG OFF on input line 6383.
 Package hyperref Info: PDF/A mode OFF on input line 6388.
 LaTeX Info: Redefining \ref on input line 6428.
 LaTeX Info: Redefining \pageref on input line 6432.
-\Hy@abspage=\count104
-\c@Item=\count105
-\c@Hfootnote=\count106
+\Hy@abspage=\count109
+\c@Item=\count110
+\c@Hfootnote=\count111
 )
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
 (E:\other\latex\tex\latex\hyperref\hpdftex.def
 File: hpdftex.def 2017/03/14 v6.85a Hyperref driver for pdfTeX
-\Fld@listcount=\count107
-\c@bookmark@seq@number=\count108
-\Hy@SectionHShift=\skip46
-)
-("E:\study\2020 winter\csc320\Project\ComputerVision-CannyEdge\project report\b
-uild\egpaper_for_review.aux")
-\openout1 = `egpaper_for_review.aux'.
+\Fld@listcount=\count112
+\c@bookmark@seq@number=\count113
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 15.
- (E:\other\latex\tex\latex\psnfss\ot1ptm.fd
+(E:\other\latex\tex\latex\oberdiek\rerunfilecheck.sty
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip48
+)
+No file egpaper_final.aux.
+\openout1 = `egpaper_final.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 25.
+(E:\other\latex\tex\latex\psnfss\ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+ABD: EveryShipout initializing macros
+(E:\other\latex\tex\latex\graphics\color.sty
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+
+(E:\other\latex\tex\latex\graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
 )
 (E:\other\latex\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count109
-\scratchdimen=\dimen120
-\scratchbox=\box28
-\nofMPsegments=\count110
-\nofMParguments=\count111
+\scratchcounter=\count114
+\scratchdimen=\dimen123
+\scratchbox=\box30
+\nofMPsegments=\count115
+\nofMParguments=\count116
 \everyMPshowfont=\toks20
-\MPscratchCnt=\count112
-\MPscratchDim=\dimen121
-\MPnumerator=\count113
-\makeMPintoPDFobject=\count114
+\MPscratchCnt=\count117
+\MPscratchDim=\dimen124
+\MPnumerator=\count118
+\makeMPintoPDFobject=\count119
 \everyMPtoPDFconversion=\toks21
 ) (E:\other\latex\tex\latex\oberdiek\epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -293,17 +318,9 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-\AtBeginShipoutBox=\box29
-
-(E:\other\latex\tex\latex\graphics\color.sty
-Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
-
-(E:\other\latex\tex\latex\graphics-cfg\color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package color Info: Driver file: pdftex.def on input line 147.
-)
-Package hyperref Info: Link coloring ON on input line 15.
+\AtBeginShipoutBox=\box31
+Package atbegshi Info: Package `everyshi' patched.
+Package hyperref Info: Link coloring OFF on input line 25.
 
 (E:\other\latex\tex\latex\hyperref\nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -311,66 +328,134 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (E:\other\latex\tex\generic\oberdiek\gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count115
+\c@section@level=\count120
 )
-LaTeX Info: Redefining \ref on input line 15.
-LaTeX Info: Redefining \pageref on input line 15.
-LaTeX Info: Redefining \nameref on input line 15.
-LaTeX Font Info:    Try loading font information for U+msa on input line 28.
+LaTeX Info: Redefining \ref on input line 25.
+LaTeX Info: Redefining \pageref on input line 25.
+LaTeX Info: Redefining \nameref on input line 25.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 48.
+LaTeX Font Info:    Try loading font information for U+msa on input line 48.
 
 (E:\other\latex\tex\latex\amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 28.
+LaTeX Font Info:    Try loading font information for U+msb on input line 48.
 
 (E:\other\latex\tex\latex\amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 28.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 48.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 48.
 
 (E:\other\latex\tex\latex\psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 50.
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--32
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4321{C:/Users/a3891/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+
+
+]
+
+LaTeX Warning: Citation `Authors14' on page 4322 undefined on input line 180.
+
+
+LaTeX Warning: Citation `Authors14b' on page 4322 undefined on input line 192.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 231--237
 
  []
 
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 40.
-[1{C:/Users/a3891/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+[4322]
+
+LaTeX Warning: Citation `Alpher02' on page 4323 undefined on input line 271.
 
 
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 73.
- [2
+LaTeX Warning: Citation `Alpher03' on page 4323 undefined on input line 272.
 
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 73.
+
+LaTeX Warning: Citation `Alpher04' on page 4323 undefined on input line 272.
+
+
+LaTeX Warning: Citation `Alpher03' on page 4323 undefined on input line 274.
+
+
+LaTeX Warning: Citation `Alpher03' on page 4323 undefined on input line 275.
+
+
+LaTeX Warning: Citation `Alpher03' on page 4323 undefined on input line 280.
+
+
+LaTeX Warning: Citation `Alpher02' on page 4323 undefined on input line 280.
+
+
+LaTeX Warning: Citation `Authors14' on page 4323 undefined on input line 280.
+
+
+LaTeX Warning: Citation `Alpher02' on page 4323 undefined on input line 281.
+
+
+LaTeX Warning: Citation `Alpher03' on page 4323 undefined on input line 281.
+
+
+LaTeX Warning: Citation `Authors14' on page 4323 undefined on input line 281.
+
+
+LaTeX Warning: Reference `fig:onecol' on page 4323 undefined on input line 356.
+
+
+
+LaTeX Warning: Reference `fig:short' on page 4323 undefined on input line 356.
+
+[4323]
+
+LaTeX Warning: Citation `Authors14' on page 4324 undefined on input line 391.
+
+No file egpaper_final.bbl.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 453.
+[4324]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 453.
 
 ("E:\study\2020 winter\csc320\Project\ComputerVision-CannyEdge\project report\b
-uild\egpaper_for_review.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 73.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 73.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 73.
+uild\egpaper_final.aux")
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 453.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 453.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 453.
  ) 
 Here is how much of TeX's memory you used:
- 6211 strings out of 493312
- 88907 string characters out of 3144544
- 174951 words of memory out of 3000000
- 9682 multiletter control sequences out of 15000+200000
- 17530 words of font info for 46 fonts, out of 3000000 for 9000
+ 6282 strings out of 493312
+ 88992 string characters out of 3144544
+ 179418 words of memory out of 3000000
+ 9714 multiletter control sequences out of 15000+200000
+ 34949 words of font info for 86 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 32i,9n,26p,996b,390s stack positions out of 5000i,500n,10000p,200000b,50000s
-{E:/other/latex/fonts/enc/dvips/base/8r.enc}<E:/other/latex/fonts/type1/urw/c
-ourier/ucrr8a.pfb><E:/other/latex/fonts/type1/urw/times/utmb8a.pfb><E:/other/la
-tex/fonts/type1/urw/times/utmr8a.pfb>
+ 32i,9n,26p,473b,324s stack positions out of 5000i,500n,10000p,200000b,50000s
+{E:/other/latex/fonts/enc/dvips/base/8r.enc}<E:/other/latex/fonts/type1/publi
+c/amsfonts/cm/cmmi10.pfb><E:/other/latex/fonts/type1/public/amsfonts/cm/cmmi7.p
+fb><E:/other/latex/fonts/type1/public/amsfonts/cm/cmmi9.pfb><E:/other/latex/fon
+ts/type1/public/amsfonts/cm/cmr10.pfb><E:/other/latex/fonts/type1/public/amsfon
+ts/cm/cmr7.pfb><E:/other/latex/fonts/type1/public/amsfonts/cm/cmr9.pfb><E:/othe
+r/latex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><E:/other/latex/fonts/type1/p
+ublic/amsfonts/cm/cmti10.pfb><E:/other/latex/fonts/type1/urw/courier/ucrr8a.pfb
+><E:/other/latex/fonts/type1/urw/times/utmb8a.pfb><E:/other/latex/fonts/type1/u
+rw/times/utmr8a.pfb><E:/other/latex/fonts/type1/urw/times/utmri8a.pfb>
 Output written on "E:\study\2020 winter\csc320\Project\ComputerVision-CannyEdge
-\project report\build\egpaper_for_review.pdf" (2 pages, 46504 bytes).
+\project report\build\egpaper_final.pdf" (4 pages, 153057 bytes).
 PDF statistics:
- 42 PDF objects out of 1000 (max. 8388607)
- 14 named destinations out of 1000 (max. 500000)
+ 100 PDF objects out of 1000 (max. 8388607)
+ 25 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

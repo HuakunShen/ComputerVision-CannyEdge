@@ -35,25 +35,29 @@ Edge detection is a important tool in many computer vision applications. The maj
 Canny Edge detection is a simple algorithm that is only consist of 5 steps. The first step is applying Gaussian filter. This is a pre-process step that can smooth out some noisy points in the image. The second step is to use Sobel filter (Gradient based filter) to extract the major edge of the image. The edge could be pretty wide. Non-maximum suppression is the third step of the algorithm. This step can thinning the wide edge, and make them one pixel wide. Next, the algorithm use threshold to separate the edges into 3 sections. They are strong pixels, weak pixels and zero pixels respectively. The final step (tracking process) is to track the weak pixels. The algorithm will keep all weak pixels that are connected to strong pixels and discard the others and assign them with zero intensity. The thinning process and tracking process provide precise edges in the result. This algorithm can also detect the edges in noisy state by applying the threshold methods.
 
 \section{Proposal}
-We gain a lot benefit from the Canny edge detection algorithm. However, there are also some drawbacks. Firstly, if the image is really large, in order to detect the edge, we might need different threshold in different area of the image. Besides, using Gaussian filter in the first step may smooth out some weak edge, that is, if the color of foreground object is similar to background object, then we cannot detect the edge properly. 
+We gain a lot benefit from the Canny edge detection algorithm. However, there are also some drawbacks. We've list our concerns and possible improvements in the subsections below.
 
-\subsection{Our concern to the algorithm}
+\subsection{Our concerns to the algorithm}
+\begin{enumerate}
+	\item[1.] In the first step, we have to choose patch size and sigma for Gaussian filter to get rid of the noisy points. If the value we choose is not property, the result will be unwilling.
+	\item[2.] In the threshold step, the algorithm only have one high and low thresholds for the whole image, which may miss some detail that should be the edge.
+	\item[3.] The algorithm require a lot of computational time, which make the efficiency low.
+\end{enumerate}
 
+\subsection{Possible improvements}
+\begin{enumerate}
+	\item[1.] In stead of using Gaussian filter with user given patch size and sigma, we plan to use Gaussian pyramid instead (using reduce function when pre-process the image, and expand them back when we get the edge).
+	\item[2.] We plans to identify multiple high and low thresholds by dividing image into different patches. For each patch, we calculate thresholds based on the highest intensity of pixel in that patch.
+	\item[3.] Using reduce function multiple times to extract only the main features and after we get the edge image, we use expand function the same number of times to make the edge image the same size as the original image.
+\end{enumerate}
 
-\subsection{How to improve}
+\subsection{Reason for each improvements}
+\begin{enumerate}
+	\item[1.] 
+	\item[2.]  
+	\item[3.] This reduce  the image size by a lot, which significantly improves the efficiency.
+\end{enumerate}
 
-
-\begin{figure}[t]
-\begin{center}
-\fbox{\rule{0pt}{2in} \rule{0.9\linewidth}{0pt}}
-   %\includegraphics[width=0.8\linewidth]{egfigure.eps}
-\end{center}
-   \caption{Example of caption.  It is set in Roman so that mathematics
-   (always set in Roman: $B \sin A = A \sin B$) may be included without an
-   ugly clash.}
-\label{fig:long}
-\label{fig:onecol}
-\end{figure}
 
 %------------------------------------------------------------------------
 \section{Modelling}
