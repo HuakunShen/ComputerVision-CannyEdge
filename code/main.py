@@ -16,6 +16,9 @@ def parse_arguments(argv, prog=''):
                         help='Indicate whether multiple-patch modification should be applied')
     parser.add_argument('-ps', '--patch_size', type=int, default=None,
                         help='patch size, total number of pixels will be patch_size^2')
+    parser.add_argument('--low', type=float, default=0.01, help='low threshold')
+    parser.add_argument('--high', type=float, default=0.1, help='high threshold')
+    parser.add_argument('-p', '--pyramid', action='store_true', help='use pyramid for blurring')
     args, unprocessed_argv = parser.parse_known_args(argv)
     print("Source Image: {}".format(args.source))
     print("Output Image: {}".format(args.output))
@@ -50,8 +53,12 @@ def main(argv, prog=''):
     if image.shape[2] > 1:
         image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
 
-    print('Blur image, apply gaussian filter to reduce noise')
-    out = convolution(image, g_filter)
+    if args.pyramid:
+        print('Blur image, apply pyramid to reduce noise')
+        out = cv.pyrDown(image)
+    else:
+        print('Blur image, apply gaussian filter to reduce noise')
+        out = convolution(image, g_filter)
     ed.store_image('blurred', out)
     success, msg = ed.write_image(parsed_output[0] + '-blur' + filename_setting_addtion + parsed_output[1], 'blurred')
     if not success:
@@ -76,9 +83,9 @@ def main(argv, prog=''):
     # start multiple patch modification
     print('Double Threshold')
     if args.multiple_patch:
-        threshold, weak, strong = ed.multi_patch_double_threshold(0.03, 0.1, args.patch_size)
+        threshold, weak, strong = ed.multi_patch_double_threshold(args.low, args.high, args.patch_size)
     else:
-        threshold, weak, strong = ed.double_threshold(0.03, 0.1)
+        threshold, weak, strong = ed.double_threshold(args.low, args.high)
     ed.store_image('threshold', threshold)
     success, msg = ed.write_image(parsed_output[0] + '-threshold' + filename_setting_addtion + parsed_output[1],
                                   'threshold')
@@ -93,6 +100,7 @@ def main(argv, prog=''):
     if not success:
         print(msg)
         exit(1)
+    print("Done")
 
 
 if __name__ == "__main__":

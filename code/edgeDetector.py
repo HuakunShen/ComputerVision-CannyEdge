@@ -43,7 +43,9 @@ class CannyEdgeDetector:
             np.float64)
         inverse_normalize_factor = (2 * np.pi * self.sigma ** 2)
         gaussian_kernel = np.exp(-((x ** 2 + y ** 2) / (2 * self.sigma ** 2)))
-        return gaussian_kernel / inverse_normalize_factor
+        gaussian_kernel = gaussian_kernel / inverse_normalize_factor
+        gaussian_kernel /= gaussian_kernel.sum()
+        return gaussian_kernel
 
     def calculate_gradient(self):
         blur_image = self._images['blurred']
@@ -65,17 +67,17 @@ class CannyEdgeDetector:
                 intensity = np.linalg.norm(edge[i, j])
                 angle = angles[i, j]
                 if 0 <= angle < 22.5 or 157.5 <= angle < 180:
-                    front = np.linalg.norm(edge[i, j + 1])  # right pixel
-                    back = np.linalg.norm(edge[i, j - 1])  # left pixel
+                    front = edge[i, j + 1]  # right pixel
+                    back = edge[i, j - 1]  # left pixel
                 elif 22.5 <= angle < 67.5:
-                    front = np.linalg.norm(edge[i - 1, j + 1])  # top right pixel
-                    back = np.linalg.norm(edge[i + 1, j - 1])  # bottom left pixel
+                    front = edge[i - 1, j + 1]  # top right pixel
+                    back = edge[i + 1, j - 1]  # bottom left pixel
                 elif 67.5 <= angle < 112.5:
-                    front = np.linalg.norm(edge[i + 1, j])  # bottom pixel
-                    back = np.linalg.norm(edge[i - 1, j])  # top pixel
+                    front = edge[i + 1, j]  # bottom pixel
+                    back = edge[i - 1, j]  # top pixel
                 elif 112.5 <= angle < 157.5:
-                    front = np.linalg.norm(edge[i - 1, j - 1])  # top left pixel
-                    back = np.linalg.norm(edge[i + 1, j + 1])  # bottom right pixel
+                    front = edge[i - 1, j - 1]  # top left pixel
+                    back = edge[i + 1, j + 1]  # bottom right pixel
                 if intensity >= front and intensity >= back:
                     result[i, j] = edge[i, j]  # if this pixel is the brightest among neighbors
                 else:
