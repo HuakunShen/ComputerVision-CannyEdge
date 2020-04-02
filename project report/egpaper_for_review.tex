@@ -6,6 +6,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 
+\usepackage[a4paper, total={6.5in, 10in}]{geometry}
 
 \usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
 
@@ -58,16 +59,62 @@ We gain a lot benefit from the Canny edge detection algorithm. However, there ar
 	\item[3.] Using reduce function multiple times will reduce the size of image by a lot, which significantly improves the efficiency.
 \end{enumerate}
 
+\section{Gaussian Pyramid Experiment}
+\subsection{Experiment setting}
+Using Gaussian pyramid reduce function in the first step instead of Gaussian filter. Comparing the edges detected from original algorithm and modified algorithm on images with different noise level and the running time of the two algorithms.
+\subsection{algorithm results}
+\textbf{Set1:}\\
+Parameters setting:\\
+thresholds: [0.1, 0.3] for both algorithms\\
+patch size: 3, sigma: 1 for original cannyEdge algorithm.\\
+\includegraphics[scale=0.1]{UofT-noise-40.png}
+\includegraphics[scale=0.2]{pyramid_edge_noise_40.png}\\
+original figure \hspace{45pt} modified algorithm result\\
+\includegraphics[scale=0.1]{result_original_noise_40.png}\\
+original algorithm result\\
+\\
+\textbf{Set2:}\\
+Parameters setting:\\
+thresholds: [0.1, 0.3] for both algorithms\\
+patch size: 3, sigma: 1 for original cannyEdge algorithm.\\
+\includegraphics[scale=0.1]{UofT-noise-60.png}
+\includegraphics[scale=0.2]{pyramid_edge_noise_60.png}\\
+original figure \hspace{45pt} modified algorithm result\\
+\includegraphics[scale=0.1]{result_original_noise_60.png}\\
+original algorithm result\\
+\\
+\textbf{Set3:}\\
+Same noise level as Set2\\
+Parameters setting:\\
+thresholds: [0.1, 0.4] for both algorithms\\
+patch size: 3, sigma: 1 for original cannyEdge algorithm.\\
+\includegraphics[scale=0.1]{UofT-noise-60.png}
+\includegraphics[scale=0.2]{pyramid_edge_noise_60_3.png}\\
+original figure \hspace{45pt} modified algorithm result\\
+\includegraphics[scale=0.1]{result_original_noise_60_3.png}\\
+original algorithm result\\
+\\
+\subsection{algorithm analysis}
+\textbf{Set1:}\\
+As we can see from the results of set1, the edge detected by modify algorithm captures more details, whereas the original algorithm only captures the outline of the building. This reveals that Gaussian filter could make some edges weak, so that those edges could not be detected by the algorithm. However, by using Gaussian pyramid reduce function, it extracts the main features from the original image and only smooth out the image by a little. This shows that if the user cannot find proper values for the parameters, our algorithm could outperform original algorithm because it doesn't affect the input image by a lot. Furthermore, finding good parameters are really time consuming because the domain of the parameters are in real number. This demonstrates that our algorithm is also better in the sense of user-friendly.\\
+\\
+\textbf{Set2:}\\
+For the second experiment, we add more noise points to the input image. From the results, we can see that the modified algorithm thinks the noisy points are also the edges due to the sharp change in intensity. However, the result of the original algorithm is pretty clear and clean, which means the original algorithm could perform well even if the images are really noisy. It doesn't mean that the modified algorithm performs bad on noisy images because how this algorithm perform also depends on the high and low thresholds that we set.\\
+\\
+\textbf{Set3:}\\
+In this experiment, we increase the high threshold to 0.4 and the result of the modified algorithm looks pretty good. This implies that even if the noise level is pretty high, we can modify threshold in order to make algorithm perform well. However, with this new threshold, the original algorithm cannot even captures the outline of the building. This experiment indicates the modified algorithm require higher high thresholds and the original algorithm require lower high thresholds. The good thing for modified algorithm is that it can captures the edge with more details, whereas for the original algorithm, it might lose those details due to the blur effect. 
+\subsection{Conclusion}
+\begin{enumerate}
+	\item[1.] Modified algorithm is more user-friendly because it doesn't require user to give patch size and sigma, which is not easy to find.
+	\item[2.] Modified algorithm could obtain edge with more details.
+	\item[3.] Modified algorithm could also perform well on the images with high noise level if the thresholds are chosen properly.
+	\item[4.] The running time of the modified algorithm is 4 times faster than the original one because it make the image size 1/4 of the original image.
+\end{enumerate}
+\subsection{limitation}
+\begin{enumerate}
+	\item[1.] The edge image found by modified algorithm is only 1/4 of the original one. Even if we use Gaussian pyramid expand function to reconstruct the result, the edge is blurred.
+	\item[2.] The modified algorithm may perform bad if the image have a lot of sharp changes in intensity. 
+\end{enumerate}
 
-%------------------------------------------------------------------------
-\section{Modelling}
-
-\section{Experiment}
-
-\section{Conclusion}
-
-\section{limitation}
-
-\section{Application}
-
+\section{Reference}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.9)  1 APR 2020 14:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.9)  2 APR 2020 13:21
 entering extended mode
 **./egpaper_for_review.tex
 (egpaper_for_review.tex
@@ -122,6 +122,33 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
+(E:\other\latex\tex\latex\geometry\geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(E:\other\latex\tex\generic\oberdiek\ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+(E:\other\latex\tex\generic\oberdiek\ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(E:\other\latex\tex\generic\ifxetex\ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count99
+\Gm@cntv=\count100
+\c@Gm@tempcnt=\count101
+\Gm@bindingoffset=\dimen116
+\Gm@wd@mp=\dimen117
+\Gm@odd@mp=\dimen118
+\Gm@even@mp=\dimen119
+\Gm@layoutwidth=\dimen120
+\Gm@layoutheight=\dimen121
+\Gm@layouthoffset=\dimen122
+\Gm@layoutvoffset=\dimen123
+\Gm@dimlist=\toks20
+
+(E:\other\latex\tex\latex\geometry\geometry.cfg))
 (E:\other\latex\tex\latex\hyperref\hyperref.sty
 Package: hyperref 2017/03/14 v6.85a Hypertext links for LaTeX
 
@@ -136,10 +163,9 @@ Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
-Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
-Package ifvtex Info: VTeX not detected.
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
 Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
-Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
@@ -169,23 +195,20 @@ Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
 Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
 Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
 )
-(E:\other\latex\tex\generic\ifxetex\ifxetex.sty
-Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
-)
 (E:\other\latex\tex\latex\oberdiek\auxhook.sty
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 )
 (E:\other\latex\tex\latex\oberdiek\kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
-\@linkdim=\dimen116
-\Hy@linkcounter=\count99
-\Hy@pagecounter=\count100
+\@linkdim=\dimen124
+\Hy@linkcounter=\count102
+\Hy@pagecounter=\count103
 
 (E:\other\latex\tex\latex\hyperref\pd1enc.def
 File: pd1enc.def 2017/03/14 v6.85a Hyperref: PDFDocEncoding definition (HO)
 )
-\Hy@SavedSpaceFactor=\count101
+\Hy@SavedSpaceFactor=\count104
 
 (E:\other\latex\tex\latex\00miktex\hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -212,17 +235,17 @@ Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 ))
-\c@Hy@tempcnt=\count102
+\c@Hy@tempcnt=\count105
 
 (E:\other\latex\tex\latex\url\url.sty
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5104.
-\XeTeXLinkMargin=\dimen117
-\Fld@menulength=\count103
-\Field@Width=\dimen118
-\Fld@charsize=\dimen119
+\XeTeXLinkMargin=\dimen125
+\Fld@menulength=\count106
+\Field@Width=\dimen126
+\Fld@charsize=\dimen127
 Package hyperref Info: Hyper figures OFF on input line 6358.
 Package hyperref Info: Link nesting OFF on input line 6363.
 Package hyperref Info: Hyper index ON on input line 6366.
@@ -232,54 +255,54 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6383.
 Package hyperref Info: PDF/A mode OFF on input line 6388.
 LaTeX Info: Redefining \ref on input line 6428.
 LaTeX Info: Redefining \pageref on input line 6432.
-\Hy@abspage=\count104
-\c@Item=\count105
-\c@Hfootnote=\count106
+\Hy@abspage=\count107
+\c@Item=\count108
+\c@Hfootnote=\count109
 )
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
 (E:\other\latex\tex\latex\hyperref\hpdftex.def
 File: hpdftex.def 2017/03/14 v6.85a Hyperref driver for pdfTeX
-\Fld@listcount=\count107
-\c@bookmark@seq@number=\count108
+\Fld@listcount=\count110
+\c@bookmark@seq@number=\count111
 \Hy@SectionHShift=\skip46
 )
 ("E:\study\2020 winter\csc320\Project\ComputerVision-CannyEdge\project report\b
 uild\egpaper_for_review.aux")
 \openout1 = `egpaper_for_review.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 16.
  (E:\other\latex\tex\latex\psnfss\ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 (E:\other\latex\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count109
-\scratchdimen=\dimen120
+\scratchcounter=\count112
+\scratchdimen=\dimen128
 \scratchbox=\box28
-\nofMPsegments=\count110
-\nofMParguments=\count111
-\everyMPshowfont=\toks20
-\MPscratchCnt=\count112
-\MPscratchDim=\dimen121
-\MPnumerator=\count113
-\makeMPintoPDFobject=\count114
-\everyMPtoPDFconversion=\toks21
+\nofMPsegments=\count113
+\nofMParguments=\count114
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count115
+\MPscratchDim=\dimen129
+\MPnumerator=\count116
+\makeMPintoPDFobject=\count117
+\everyMPtoPDFconversion=\toks22
 ) (E:\other\latex\tex\latex\oberdiek\epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -293,8 +316,41 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-\AtBeginShipoutBox=\box29
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(63.87643pt, 469.75499pt, 63.87645pt)
+* v-part:(T,H,B)=(48.93872pt, 722.7pt, 73.40813pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=469.75499pt
+* \textheight=722.7pt
+* \oddsidemargin=-8.39355pt
+* \evensidemargin=-8.39355pt
+* \topmargin=-60.33127pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=4.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumntrue
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+\AtBeginShipoutBox=\box29
 (E:\other\latex\tex\latex\graphics\color.sty
 Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
 
@@ -303,7 +359,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 )
-Package hyperref Info: Link coloring ON on input line 15.
+Package hyperref Info: Link coloring ON on input line 16.
 
 (E:\other\latex\tex\latex\hyperref\nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -311,66 +367,167 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (E:\other\latex\tex\generic\oberdiek\gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count115
+\c@section@level=\count118
 )
-LaTeX Info: Redefining \ref on input line 15.
-LaTeX Info: Redefining \pageref on input line 15.
-LaTeX Info: Redefining \nameref on input line 15.
-LaTeX Font Info:    Try loading font information for U+msa on input line 28.
+LaTeX Info: Redefining \ref on input line 16.
+LaTeX Info: Redefining \pageref on input line 16.
+LaTeX Info: Redefining \nameref on input line 16.
+LaTeX Font Info:    Try loading font information for U+msa on input line 29.
 
 (E:\other\latex\tex\latex\amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 28.
+LaTeX Font Info:    Try loading font information for U+msb on input line 29.
 
 (E:\other\latex\tex\latex\amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 28.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 29.
 
 (E:\other\latex\tex\latex\psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--32
+Underfull \hbox (badness 10000) in paragraph at lines 32--33
 
  []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 40.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 41.
 [1{C:/Users/a3891/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 73.
- [2
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 66.
+<UofT-noise-40.png, id=19, 1079.03125pt x 557.08125pt>
+File: UofT-noise-40.png Graphic file (type png)
+<use UofT-noise-40.png>
+Package pdftex.def Info: UofT-noise-40.png  used on input line 70. on input lin
+e 70.
+Package pdftex.def Info: Requested size: 107.90944pt x 55.71138pt on input line
+ 70.
+<pyramid_edge_noise_40.png, id=21, 540.0175pt x 279.0425pt>
+File: pyramid_edge_noise_40.png Graphic file (type png)
+<use pyramid_edge_noise_40.png>
+Package pdftex.def Info: pyramid_edge_noise_40.png  used on input line 71. on i
+nput line 71.
+Package pdftex.def Info: Requested size: 108.00157pt x 55.8075pt on input line 
+71.
+<result_original_noise_40.png, id=22, 1079.03125pt x 557.08125pt>
+File: result_original_noise_40.png Graphic file (type png)
+<use result_original_noise_40.png>
+Package pdftex.def Info: result_original_noise_40.png  used on input line 73. o
+n input line 73.
+Package pdftex.def Info: Requested size: 107.90944pt x 55.71138pt on input line
+ 73.
+<UofT-noise-60.png, id=23, 1079.03125pt x 557.08125pt>
+File: UofT-noise-60.png Graphic file (type png)
+<use UofT-noise-60.png>
+Package pdftex.def Info: UofT-noise-60.png  used on input line 80. on input lin
+e 80.
+Package pdftex.def Info: Requested size: 107.90944pt x 55.71138pt on input line
+ 80.
+<pyramid_edge_noise_60.png, id=24, 540.0175pt x 279.0425pt>
+File: pyramid_edge_noise_60.png Graphic file (type png)
+<use pyramid_edge_noise_60.png>
+Package pdftex.def Info: pyramid_edge_noise_60.png  used on input line 81. on i
+nput line 81.
+Package pdftex.def Info: Requested size: 108.00157pt x 55.8075pt on input line 
+81.
+<result_original_noise_60.png, id=25, 1079.03125pt x 557.08125pt>
+File: result_original_noise_60.png Graphic file (type png)
+<use result_original_noise_60.png>
+Package pdftex.def Info: result_original_noise_60.png  used on input line 83. o
+n input line 83.
+Package pdftex.def Info: Requested size: 107.90944pt x 55.71138pt on input line
+ 83.
+File: UofT-noise-60.png Graphic file (type png)
+<use UofT-noise-60.png>
+Package pdftex.def Info: UofT-noise-60.png  used on input line 91. on input lin
+e 91.
+Package pdftex.def Info: Requested size: 107.90944pt x 55.71138pt on input line
+ 91.
+<pyramid_edge_noise_60_3.png, id=26, 540.0175pt x 279.0425pt>
+File: pyramid_edge_noise_60_3.png Graphic file (type png)
+<use pyramid_edge_noise_60_3.png>
+Package pdftex.def Info: pyramid_edge_noise_60_3.png  used on input line 92. on
+ input line 92.
+Package pdftex.def Info: Requested size: 108.00157pt x 55.8075pt on input line 
+92.
+<result_original_noise_60_3.png, id=27, 1079.03125pt x 557.08125pt>
+File: result_original_noise_60_3.png Graphic file (type png)
+<use result_original_noise_60_3.png>
+Package pdftex.def Info: result_original_noise_60_3.png  used on input line 94.
+ on input line 94.
+Package pdftex.def Info: Requested size: 107.90944pt x 55.71138pt on input line
+ 94.
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--97
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--97
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--97
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--97
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--106
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--106
+
+ []
+
+
+Underfull \vbox (badness 3312) has occurred while \output is active []
+
+ [2 <./UofT-noise-40.png> <./pyramid_edge_noise_40.png (PNG copy)> <./result_or
+iginal_noise_40.png (PNG copy)> <./UofT-noise-60.png> <./pyramid_edge_noise_60.
+png (PNG copy)> <./result_original_noise_60.png (PNG copy)> <./pyramid_edge_noi
+se_60_3.png (PNG copy)> <./result_original_noise_60_3.png (PNG copy)>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 120.
+ [3
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 73.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 120.
 
 ("E:\study\2020 winter\csc320\Project\ComputerVision-CannyEdge\project report\b
 uild\egpaper_for_review.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 73.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 73.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 73.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 120.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 120.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 120.
  ) 
 Here is how much of TeX's memory you used:
- 6211 strings out of 493312
- 88907 string characters out of 3144544
- 174951 words of memory out of 3000000
- 9682 multiletter control sequences out of 15000+200000
- 17530 words of font info for 46 fonts, out of 3000000 for 9000
+ 6702 strings out of 493312
+ 96669 string characters out of 3144544
+ 191364 words of memory out of 3000000
+ 10148 multiletter control sequences out of 15000+200000
+ 19156 words of font info for 48 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 32i,9n,26p,996b,390s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 32i,9n,31p,996b,388s stack positions out of 5000i,500n,10000p,200000b,50000s
 {E:/other/latex/fonts/enc/dvips/base/8r.enc}<E:/other/latex/fonts/type1/urw/c
 ourier/ucrr8a.pfb><E:/other/latex/fonts/type1/urw/times/utmb8a.pfb><E:/other/la
 tex/fonts/type1/urw/times/utmr8a.pfb>
 Output written on "E:\study\2020 winter\csc320\Project\ComputerVision-CannyEdge
-\project report\build\egpaper_for_review.pdf" (2 pages, 46504 bytes).
+\project report\build\egpaper_for_review.pdf" (3 pages, 3306042 bytes).
 PDF statistics:
- 42 PDF objects out of 1000 (max. 8388607)
- 14 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 59 PDF objects out of 1000 (max. 8388607)
+ 17 named destinations out of 1000 (max. 500000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
