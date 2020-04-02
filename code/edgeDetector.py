@@ -166,15 +166,17 @@ class CannyEdgeDetector:
 def convolution(source_image, gaussian_kernel):
     row, col = source_image.shape[:2]
     out_image = np.zeros(source_image.shape)
-    row_padding, col_padding = np.array(gaussian_kernel.shape) / 2
+    row_padding, col_padding = np.array(gaussian_kernel.shape) // 2
 
     for i in range(int(row_padding), int(row - row_padding)):
         for j in range(int(col_padding), int(col - col_padding)):
-            conv_sum = 0
-            for m in range(int(-row_padding), int(row_padding + 1)):
-                for n in range(int(-col_padding), int(col_padding + 1)):
-                    conv_sum += source_image[i + m, j + n] * gaussian_kernel[m, n]
-            out_image[i, j] = conv_sum
+            # conv_sum = 0
+            # for m in range(int(-row_padding), int(row_padding + 1)):
+            #     for n in range(int(-col_padding), int(col_padding + 1)):
+            #         conv_sum += source_image[i + m, j + n] * gaussian_kernel[m, n]
+            # out_image[i, j] = conv_sum
+            patch = source_image[i - row_padding:i + row_padding + 1, j - col_padding:j + col_padding + 1]
+            out_image[i, j] = int((np.flip(patch) * gaussian_kernel).sum())
     return out_image
 
 
