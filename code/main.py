@@ -49,7 +49,7 @@ def main(argv, prog=''):
     if not success:
         print(msg)
         exit(1)
-    threshold, weak, strong = ed.double_threshold(0.03, 0.1)
+    threshold, weak, strong = ed.double_threshold(0.03, 0.3)
     ed.store_image('threshold', threshold)
     success, msg = ed.write_image(parsed_output[0] + '-threshold' + parsed_output[1], 'threshold')
     if not success:
