@@ -90,7 +90,7 @@ def main(argv, prog=''):
         threshold, weak, strong, patch_border_pixels = ed.multi_patch_double_threshold(args.low, args.high,
                                                                                        args.patch_size)
     else:
-        threshold, weak, strong, _ = ed.double_threshold(args.low, args.high)
+        threshold, weak, strong = ed.double_threshold(args.low, args.high)
     ed.store_image('threshold', threshold)
     success, msg = ed.write_image(parsed_output[0] + '-threshold' + filename_setting_addtion + parsed_output[1],
                                   'threshold')
