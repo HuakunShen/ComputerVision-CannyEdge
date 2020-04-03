@@ -4,15 +4,17 @@ from itertools import product
 
 
 class CannyEdgeDetector:
-    def __init__(self, sigma=1, kernel_size=1):
+    def __init__(self, sigma=1, kernel_size=1, show_patch_border=False):
         self._images = {
             'source': None,
             'blurred': None,
             'edge': None,
-            'theta': None
+            'theta': None,
+            'patches': None
         }
         self.sigma = sigma
         self.kernel_size = kernel_size
+        self.show_patch_border = show_patch_border
 
     def read_image(self, filename, key):
         success = False
@@ -116,6 +118,7 @@ class CannyEdgeDetector:
         image = self._images['suppress']
         n_row, n_col = image.shape
         result = np.zeros((n_row, n_col))
+        patch_border_pixels = [[], []]
         # divide into patches
         row_s, row_e, col_s, col_e = 0, 0, 0, 0  # s for start, e for end
         while row_e < n_row:
@@ -124,6 +127,10 @@ class CannyEdgeDetector:
             while col_e < n_col:
                 col_e = col_s + patch_size if col_s + patch_size < n_col else n_col
                 patch = image[row_s:row_e, col_s:col_e].copy()  # copy a patch from the image
+                if self.show_patch_border:
+                    rows, cols = patch_border(row_s, row_e, col_s, col_e)
+                    patch_border_pixels[0].extend(rows)
+                    patch_border_pixels[1].extend(cols)
                 max_intensity = patch.max()  # obtain local max intensity
                 high_threshold = max_intensity * high
                 low_threshold = max_intensity * low
@@ -138,7 +145,7 @@ class CannyEdgeDetector:
                 result[row_s:row_e, col_s:col_e] = tmp
                 col_s = col_e
             row_s = row_e
-        return result, 20, 255
+        return result, 20, 255, patch_border_pixels
 
     def hysteresis(self, weak, strong):
         surroundings = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
@@ -181,6 +188,25 @@ def convolution(source_image, gaussian_kernel):
             patch = source_image[i - row_padding:i + row_padding + 1, j - col_padding:j + col_padding + 1]
             out_image[i, j] = int((np.flip(patch) * gaussian_kernel).sum())
     return out_image
+
+
+def patch_border(row_s, row_e, col_s, col_e):
+    n_row, n_col = row_e - row_s, col_e - col_s
+    rows = []
+    cols = []
+    # left border
+    rows.extend(np.arange(row_s, row_e))
+    cols.extend(np.repeat(col_s, n_row))
+    # right border
+    rows.extend(np.arange(row_s, row_e))
+    cols.extend(np.repeat(col_e - 1, n_row))
+    # top border
+    rows.extend(np.repeat(row_s, n_col))
+    cols.extend(np.arange(col_s, col_e))
+    # bottom border
+    rows.extend(np.repeat(row_e - 1, n_col))
+    cols.extend(np.arange(col_s, col_e))
+    return rows, cols
 
 
 def run(source_image):

@@ -19,6 +19,8 @@ def parse_arguments(argv, prog=''):
     parser.add_argument('--low', type=float, default=0.01, help='low threshold')
     parser.add_argument('--high', type=float, default=0.1, help='high threshold')
     parser.add_argument('-p', '--pyramid', action='store_true', help='use pyramid for blurring')
+    parser.add_argument('--show_patch', action='store_true',
+                        help='For multi-patch threshold modification, save a copy of patches illustration')
     args, unprocessed_argv = parser.parse_known_args(argv)
     print("Source Image: {}".format(args.source))
     print("Output Image: {}".format(args.output))
@@ -32,6 +34,9 @@ def args_check(args):
         if not args.patch_size:
             print("Multiple patch selected but patch size not selected")
             exit(1)
+    if args.show_patch and not args.multiple_patch:
+        print("show_patch should only be specified when multiple_patch is selected")
+        exit(1)
 
 
 def error_check(success, msg):
@@ -48,7 +53,8 @@ def main(argv, prog=''):
     filename_setting_addtion = ''
     if args.multiple_patch:
         filename_setting_addtion += '-multiple_patch'
-    ed = CannyEdgeDetector(sigma=args.sigma, kernel_size=args.kernel_size)
+
+    ed = CannyEdgeDetector(sigma=args.sigma, kernel_size=args.kernel_size, show_patch_border=args.show_patch)
     g_filter = ed.gaussian_filter()
     print('Reading source image')
     success, msg = ed.read_image(args.source, 'source')
@@ -81,9 +87,10 @@ def main(argv, prog=''):
     # start multiple patch modification
     print('Double Threshold')
     if args.multiple_patch:
-        threshold, weak, strong = ed.multi_patch_double_threshold(args.low, args.high, args.patch_size)
+        threshold, weak, strong, patch_border_pixels = ed.multi_patch_double_threshold(args.low, args.high,
+                                                                                       args.patch_size)
     else:
-        threshold, weak, strong = ed.double_threshold(args.low, args.high)
+        threshold, weak, strong, _ = ed.double_threshold(args.low, args.high)
     ed.store_image('threshold', threshold)
     success, msg = ed.write_image(parsed_output[0] + '-threshold' + filename_setting_addtion + parsed_output[1],
                                   'threshold')
@@ -94,6 +101,15 @@ def main(argv, prog=''):
     ed.store_image('result', result)
     success, msg = ed.write_image(args.output, 'result')
     error_check(success, msg)
+
+    # produce patch border image
+    if args.show_patch:
+        patch_border_img = cv.imread(args.output)
+        patch_border_img[patch_border_pixels[0], patch_border_pixels[1]] = (0, 0, 255)
+        ed.store_image('patches', patch_border_img)
+        success, msg = ed.write_image(parsed_output[0] + '-patch_border' + filename_setting_addtion + parsed_output[1],
+                                      'patches')
+        error_check(success, msg)
     print("Done")
 
 
@@ -102,7 +118,7 @@ if __name__ == "__main__":
 
     # for debug only
     # main(['-s', '../test_images/car/car.JPG', '-o', '../output/car/car-out.png', '--sigma', '1', '--kernel_size', '1',
-    #       '-mp', '-ps', '300', '--low', '0.1', '--high', '0.4'])
+    #       '-mp', '-ps', '50', '--low', '0.1', '--high', '0.4', '--show_patch'])
     # main(['-s', '../test_images/car/car.JPG', '-o', '../output/car/car-out.png', '--sigma', '1', '--kernel_size', '1',
     #       '-mp', '-ps', '300', '--low', '0.1', '--high', '0.4'])
     # python main.py -s ../test_images/car/car.JPG -o ../output/car/car-out.png --sigma 1 --kernel_size 5
