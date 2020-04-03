@@ -64,7 +64,7 @@ class CannyEdgeDetector:
             for j in range(1, col - 1):
                 front = 0
                 back = 0
-                intensity = np.linalg.norm(edge[i, j])
+                intensity = edge[i, j]
                 angle = angles[i, j]
                 if 0 <= angle < 22.5 or 157.5 <= angle < 180:
                     front = edge[i, j + 1]  # right pixel
@@ -131,10 +131,11 @@ class CannyEdgeDetector:
                 weak_r, weak_c = np.where(
                     (low_threshold < patch) & (patch < high_threshold))  # find weak pixels with thresholds
                 # update patch pixels intensity
-                patch[strong_r, strong_c] = 255
-                patch[weak_r, weak_c] = 20
+                tmp = np.zeros(patch.shape)
+                tmp[strong_r, strong_c] = 255
+                tmp[weak_r, weak_c] = 20
                 # copy patch pixels to result image
-                result[row_s:row_e, col_s:col_e] = patch
+                result[row_s:row_e, col_s:col_e] = tmp
                 col_s = col_e
             row_s = row_e
         return result, 20, 255

@@ -34,6 +34,12 @@ def args_check(args):
             exit(1)
 
 
+def error_check(success, msg):
+    if not success:
+        print(msg)
+        exit(1)
+
+
 def main(argv, prog=''):
     args, unprocessed_argv = parse_arguments(argv, prog)
     args_check(args)
@@ -46,9 +52,7 @@ def main(argv, prog=''):
     g_filter = ed.gaussian_filter()
     print('Reading source image')
     success, msg = ed.read_image(args.source, 'source')
-    if not success:
-        print(msg)
-        exit(1)
+    error_check(success, msg)
     image = np.array(ed.get_image('source'))
     if image.shape[2] > 1:
         image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
@@ -61,25 +65,19 @@ def main(argv, prog=''):
         out = convolution(image, g_filter)
     ed.store_image('blurred', out)
     success, msg = ed.write_image(parsed_output[0] + '-blur' + filename_setting_addtion + parsed_output[1], 'blurred')
-    if not success:
-        print(msg)
-        exit(1)
+    error_check(success, msg)
 
     print('Calculating gradient and theta')
     edge, theta = ed.calculate_gradient()
     ed.store_image('edge', edge)
     success, msg = ed.write_image(parsed_output[0] + '-edge' + filename_setting_addtion + parsed_output[1], 'edge')
-    if not success:
-        print(msg)
-        exit(1)
+    error_check(success, msg)
 
     print('Non-Max Suppression')
     ed.non_maximum_suppression(theta * 180 / np.pi)
     success, msg = ed.write_image(parsed_output[0] + '-suppress' + filename_setting_addtion + parsed_output[1],
                                   'suppress')
-    if not success:
-        print(msg)
-        exit(1)
+    error_check(success, msg)
     # start multiple patch modification
     print('Double Threshold')
     if args.multiple_patch:
@@ -89,17 +87,13 @@ def main(argv, prog=''):
     ed.store_image('threshold', threshold)
     success, msg = ed.write_image(parsed_output[0] + '-threshold' + filename_setting_addtion + parsed_output[1],
                                   'threshold')
-    if not success:
-        print(msg)
-        exit(1)
+    error_check(success, msg)
 
     print('Hysteresis: Keep only the pixels that belong to, or are connected to "strong edges')
     result = ed.hysteresis(weak, strong)
     ed.store_image('result', result)
     success, msg = ed.write_image(args.output, 'result')
-    if not success:
-        print(msg)
-        exit(1)
+    error_check(success, msg)
     print("Done")
 
 
@@ -107,6 +101,8 @@ if __name__ == "__main__":
     main(sys.argv[1:], sys.argv[0])
 
     # for debug only
-    # main(['-s', '../test_images/car/car.JPG', '-o', '../output/car/car-out.png', '--sigma', '1', '--kernel_size', '5',
-    #       '-mp', '-ps', '5'])
+    # main(['-s', '../test_images/car/car.JPG', '-o', '../output/car/car-out.png', '--sigma', '1', '--kernel_size', '1',
+    #       '-mp', '-ps', '300', '--low', '0.1', '--high', '0.4'])
+    # main(['-s', '../test_images/car/car.JPG', '-o', '../output/car/car-out.png', '--sigma', '1', '--kernel_size', '1',
+    #       '-mp', '-ps', '300', '--low', '0.1', '--high', '0.4'])
     # python main.py -s ../test_images/car/car.JPG -o ../output/car/car-out.png --sigma 1 --kernel_size 5
