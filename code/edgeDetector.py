@@ -1,6 +1,5 @@
 import cv2 as cv
 import numpy as np
-from itertools import product
 
 
 class CannyEdgeDetector:
@@ -149,8 +148,6 @@ class CannyEdgeDetector:
 
     def hysteresis(self, weak, strong):
         surroundings = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
-        # surroundings = list(product(np.mgrid[-1:2], np.mgrid[-1:2]))
-        # surroundings.pop(4)
         image = self._images['threshold']
         row, col = image.shape
         for i in range(1, row - 1):
@@ -180,11 +177,6 @@ def convolution(source_image, gaussian_kernel):
 
     for i in range(int(row_padding), int(row - row_padding)):
         for j in range(int(col_padding), int(col - col_padding)):
-            # conv_sum = 0
-            # for m in range(int(-row_padding), int(row_padding + 1)):
-            #     for n in range(int(-col_padding), int(col_padding + 1)):
-            #         conv_sum += source_image[i + m, j + n] * gaussian_kernel[m, n]
-            # out_image[i, j] = conv_sum
             patch = source_image[i - row_padding:i + row_padding + 1, j - col_padding:j + col_padding + 1]
             out_image[i, j] = int((np.flip(patch) * gaussian_kernel).sum())
     return out_image
@@ -207,63 +199,3 @@ def patch_border(row_s, row_e, col_s, col_e):
     rows.extend(np.repeat(row_e - 1, n_col))
     cols.extend(np.arange(col_s, col_e))
     return rows, cols
-
-
-def run(source_image):
-    ed = CannyEdgeDetector()
-    g_filter = ed.gaussian_filter()
-    filename = source_image
-    # read image
-    ed.read_image(filename, 'source')
-    image = np.array(ed.get_image('source'))
-    # convert to grayscale image
-    if image.shape[2] > 1:
-        image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
-    # use a gaussian filter to minimize image noise (blur)
-    out = convolution(image, g_filter)
-    ed.store_image('blurred', out)
-    # save blurred image
-    ed.write_image('blur.png', 'blurred')
-    # find gradient intensity
-    edge, theta = ed.calculate_gradient()
-    ed.store_image('edge', edge)
-    ed.write_image('edge.png', 'edge')
-    # Edge thinning, keep only the pixels with highest intensity in their neighborhoods
-    ed.non_maximum_suppression(theta * 180 / np.pi)
-    ed.write_image('suppress.png', 'suppress')
-    # double threshold, separate "strong edge from weak edge pixels
-    threshold, weak, strong = ed.double_threshold(0.03, 0.1)
-    ed.store_image('threshold', threshold)
-    ed.write_image('threshold.png', 'threshold')
-    # Hysteresis keep only the pixels that belong to, or are connected to "strong edges"
-    result = ed.hysteresis(weak, strong)
-    ed.store_image('result', result)
-    ed.write_image('result.png', 'result')
-
-
-def run2(source_image):
-    ed = CannyEdgeDetector()
-    filename = source_image
-    ed.read_image(filename, 'source')
-    image = np.array(ed.get_image('source'))
-    if image.shape[2] > 1:
-        image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
-    image = cv.pyrDown(image)
-    ed.store_image('blurred', image)
-    ed.write_image('blur.png', 'blurred')
-    edge, theta = ed.calculate_gradient()
-    ed.store_image('edge', edge)
-    ed.write_image('edge.png', 'edge')
-    ed.non_maximum_suppression(theta * 180 / np.pi)
-    ed.write_image('suppress.png', 'suppress')
-    threshold, weak, strong = ed.double_threshold(0.1, 0.4)
-    ed.store_image('threshold', threshold)
-    ed.write_image('threshold.png', 'threshold')
-    result = ed.hysteresis(weak, strong)
-    # result = cv.pyrUp(result)
-    ed.store_image('result', result)
-    ed.write_image('result.png', 'result')
-
-
-if __name__ == "__main__":
-    run("../test_images/UofT/UofT-noise-60.png")
